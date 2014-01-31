@@ -1,0 +1,32 @@
+# Maintainer: Michael Gehring <mg@ebfe.org>
+
+pkgname=utop-git
+pkgver=da35998
+pkgrel=1
+pkgdesc="process monitor"
+arch=('i686' 'x86_64')
+url="https://github.com/michaelforney/utop"
+makedepends=('git')
+depends=()
+provides=('utop')
+source=("$pkgname"::'git+https://github.com/bobrippling/utop')
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+	git describe --long --always | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+}
+
+build() {
+	cd "$srcdir/$pkgname"
+	./configure
+	make
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	mkdir -p $pkgdir/usr/bin
+	make PREFIX="$pkgdir"/usr install
+}
+
+
