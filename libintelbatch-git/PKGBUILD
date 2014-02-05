@@ -9,6 +9,7 @@ url="https://github.com/michaelforney/libintelbatch"
 makedepends=('git')
 depends=('libdrm')
 provides=('libintelbatch')
+options=('staticlibs')
 source=("$pkgname"::'git+https://github.com/michaelforney/libintelbatch')
 sha256sums=('SKIP')
 

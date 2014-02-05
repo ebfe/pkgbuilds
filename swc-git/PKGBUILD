@@ -9,6 +9,7 @@ url="https://github.com/michaelforney/swc"
 makedepends=('git')
 depends=('systemd' 'fontconfig' 'libdrm' 'libevdev' 'xcb-util-wm' 'libxkbcommon' 'pixman' 'wld')
 provides=('swc')
+options=('staticlibs')
 source=("$pkgname"::'git+https://github.com/michaelforney/swc')
 sha256sums=('SKIP')
 

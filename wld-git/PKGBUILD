@@ -9,6 +9,7 @@ url="https://github.com/michaelforney/wld"
 makedepends=('git')
 depends=('fontconfig' 'libdrm' 'pixman' 'wayland')
 provides=('wld')
+options=('staticlibs')
 source=("$pkgname"::'git+https://github.com/michaelforney/wld')
 sha256sums=('SKIP')
 

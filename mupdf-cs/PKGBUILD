@@ -8,6 +8,7 @@ pkgdesc='A lightweight PDF and XPS viewer'
 arch=('i686' 'x86_64')
 url='http://mupdf.com'
 conflicts=('mupdf')
+options=('staticlibs')
 source=(https://mupdf.googlecode.com/files/$_pkgname-$pkgver-source.tar.gz 0001-continuous-scrolling.patch)
 
 build() {
