@@ -1,20 +1,21 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=utop-git
-pkgver=da35998
+pkgver=20130921.da35998
 pkgrel=1
 pkgdesc="process monitor"
 arch=('i686' 'x86_64')
 url="https://github.com/michaelforney/utop"
+license=('MIT')
 makedepends=('git')
 depends=()
 provides=('utop')
 source=("$pkgname"::'git+https://github.com/bobrippling/utop')
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
 	cd "$srcdir/$pkgname"
-	git describe --long --always | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
 }
 
 build() {

@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=wld-git
-pkgver=f63520e
+pkgver=20140131.6b163d2
 pkgrel=1
 pkgdesc="A primitive drawing library targeted at Wayland"
 arch=('i686' 'x86_64')
@@ -10,11 +10,11 @@ makedepends=('git')
 depends=('wayland' 'libintelbatch')
 provides=('wld')
 source=("$pkgname"::'git+https://github.com/michaelforney/wld')
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
 	cd "$srcdir/$pkgname"
-	git describe --long --always | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
 }
 
 build() {

@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=libintelbatch-git
-pkgver=147b080
+pkgver=20140114.147b080
 pkgrel=1
 pkgdesc="An implementation of some Intel Graphics batch operations"
 arch=('i686' 'x86_64')
@@ -9,11 +9,11 @@ url="https://github.com/michaelforney/libintelbatch"
 makedepends=('git')
 provides=('libintelbatch')
 source=("$pkgname"::'git+https://github.com/michaelforney/libintelbatch')
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
 	cd "$srcdir/$pkgname"
-	git describe --long --always | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
 }
 
 build() {

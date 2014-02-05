@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=swc-git
-pkgver=18cfa42
+pkgver=20140204.b8123be
 pkgrel=1
 pkgdesc="A primitive drawing library targeted at Wayland"
 arch=('i686' 'x86_64')
@@ -10,11 +10,11 @@ makedepends=('git')
 depends=('wayland' 'libdrm' 'libevdev' 'libxcb' 'xcb-util-wm' 'libxkbcommon' 'pixman' 'wld')
 provides=('swc')
 source=("$pkgname"::'git+https://github.com/michaelforney/swc')
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
 	cd "$srcdir/$pkgname"
-	git describe --long --always | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
 }
 
 build() {
