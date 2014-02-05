@@ -7,6 +7,7 @@ pkgdesc="An implementation of some Intel Graphics batch operations"
 arch=('i686' 'x86_64')
 url="https://github.com/michaelforney/libintelbatch"
 makedepends=('git')
+depends=('libdrm')
 provides=('libintelbatch')
 source=("$pkgname"::'git+https://github.com/michaelforney/libintelbatch')
 sha256sums=('SKIP')

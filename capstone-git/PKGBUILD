@@ -5,8 +5,9 @@ pkgver=20140204.5420dc3
 pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
-license='BSD'
+license=('BSD')
 url='http://www.capstone-engine.org'
+depends=('glibc')
 
 source=("$pkgname"::'git+https://github.com/aquynh/capstone')
 sha256sums=('SKIP')
