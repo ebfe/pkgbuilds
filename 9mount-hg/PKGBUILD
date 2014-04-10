@@ -1,0 +1,31 @@
+# Maintainer: Michael Gehring <mg@ebfe.org>
+pkgname=9mount-hg
+pkgver=r37.c6da9cac8d01
+pkgrel=1
+pkgdesc='9mount is a set of SUID tools for mounting 9p filesystems via v9fs.'
+arch=('i686' 'x86_64')
+license=('ISC')
+url='http://sqweek.net/code/9mount/'
+replaces=('9mount')
+conflicts=('9mount')
+source=("$pkgname"::'hg+http://sqweek.net/hg/9mount')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+	printf "r%s.%s" "$(hg identify -n)" "$(hg identify -i)"
+}
+
+build() {
+	cd "$srcdir/$pkgname"
+	make
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	install -d ${pkgdir}/usr/{bin,share/man/man1,share/licenses/${pkgname}}
+	install -m4755 -t "${pkgdir}/usr/bin/" 9mount 9umount 9bind
+	install -m644  -t "${pkgdir}/usr/share/man/man1" 9mount.1
+	install -m644  -t "${pkgdir}/usr/share/licenses/${pkgname}" COPYING
+}
+
