@@ -1,5 +1,4 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
-
 pkgname=capstone
 pkgver=2.1.2
 pkgrel=1
@@ -20,5 +19,6 @@ build() {
 package() {
 	cd $pkgname-$pkgver
 	make DESTDIR="$pkgdir" LIBDIR="$pkgdir"/usr/lib install
+	install -D -m644 LICENSE.TXT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
