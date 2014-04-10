@@ -4,6 +4,7 @@ pkgver=r37.c6da9cac8d01
 pkgrel=1
 pkgdesc='9mount is a set of SUID tools for mounting 9p filesystems via v9fs.'
 arch=('i686' 'x86_64')
+depends=('glibc')
 license=('ISC')
 url='http://sqweek.net/code/9mount/'
 replaces=('9mount')
