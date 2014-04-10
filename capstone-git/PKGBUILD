@@ -1,14 +1,14 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=capstone-git
-pkgver=20140204.5420dc3
+pkgver=20140407.c92f266
 pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
 license=('BSD')
 url='http://www.capstone-engine.org'
 depends=('glibc')
-
+conflicts=('capstone')
 source=("$pkgname"::'git+https://github.com/aquynh/capstone')
 sha256sums=('SKIP')
 
@@ -25,5 +25,6 @@ build() {
 package() {
 	cd $pkgname
 	make DESTDIR="$pkgdir" LIBDIR="$pkgdir"/usr/lib install
+	install -D -m644 LICENSE.TXT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
