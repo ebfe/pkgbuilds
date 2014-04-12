@@ -1,0 +1,32 @@
+# Maintainer: Michael Gehring <mg@ebfe.org>
+
+pkgname=tcpflow-git
+pkgver=20140306.1cd5a91
+pkgrel=1
+pkgdesc='tcpflow is a program that captures data transmitted as part of TCP connections.'
+arch=('i686' 'x86_64')
+license=('GPL')
+url='https://github.com/simsong/tcpflow'
+depends=('cairo' 'libpcap')
+conflicts=('tcpflow')
+replaces=('tcpflow')
+source=("$pkgname"::'git+https://github.com/simsong/tcpflow')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
+}
+
+build() {
+	cd $pkgname
+	sh bootstrap.sh
+	./configure --prefix=/usr --mandir=/usr/share/man
+	make
+}
+
+package() {
+	cd $pkgname
+	make DESTDIR="$pkgdir" install
+}
+
