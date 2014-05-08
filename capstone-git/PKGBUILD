@@ -1,11 +1,12 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=capstone-git
-pkgver=20140407.c92f266
+pkgver=20140503.f007b73
 pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
 license=('BSD')
+options=('staticlibs')
 url='http://www.capstone-engine.org'
 depends=('glibc')
 conflicts=('capstone')
