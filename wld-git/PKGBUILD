@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 
 pkgname=wld-git
-pkgver=20140131.6b163d2
+pkgver=20140401.9ed43c6
 pkgrel=1
 pkgdesc="A primitive drawing library targeted at Wayland"
 arch=('i686' 'x86_64')
@@ -9,6 +9,7 @@ url="https://github.com/michaelforney/wld"
 makedepends=('git')
 depends=('fontconfig' 'libdrm' 'pixman' 'wayland')
 provides=('wld')
+license=('MIT')
 options=('staticlibs')
 source=("$pkgname"::'git+https://github.com/michaelforney/wld')
 sha256sums=('SKIP')
@@ -26,6 +27,7 @@ build() {
 package() {
 	cd "$srcdir/$pkgname"
 	make PREFIX=/usr DESTDIR="$pkgdir" install
+	install -D -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
 
 
