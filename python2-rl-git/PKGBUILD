@@ -1,0 +1,23 @@
+# Maintainer: Michael Gehring <mg@ebfe.org>
+
+pkgname=python2-rl-git
+pkgver=20121005.3fef23a
+pkgrel=1
+pkgdesc='Alternative Python bindings for GNU Readline.'
+arch=('i686' 'x86_64')
+license=('custom')
+url='https://github.com/stefanholek/rl'
+depends=('python2')
+source=("$pkgname"::'git+https://github.com/stefanholek/rl')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
+}
+
+package() {
+	cd $pkgname
+	python2 setup.py install --root="$pkgdir/" --optimize=1
+}
+
