@@ -1,0 +1,28 @@
+# Maintainer: Michael Gehring <mg@ebfe.org>
+
+pkgname=voltron-git
+pkgver=20141031.c5f8b90
+pkgrel=1
+pkgdesc='Voltron is an extensible debugger UI for hackers.'
+arch=('i686' 'x86_64')
+license=('custom')
+url='https://github.com/snare/voltron'
+depends=('python2' 'python2-cherrypy' 'python2-flask' 'python2-blessed' 'python2-blessings' 'python2-rl-git' 'python2-scruffy-git')
+conflicts=('voltron')
+provides=('voltron')
+source=("$pkgname"::'git+https://github.com/snare/voltron')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+	git log -1 --format="%cd.%h" --date=short | sed 's|-||g'
+}
+
+package() {
+	cd $pkgname
+	python2 setup.py install --root="$pkgdir/" --optimize=1
+
+	mkdir -p "$pkgdir"/usr/share/voltron
+	mv "$pkgdir"/usr/dbgentry.py "$pkgdir"/usr/share/voltron/dbgentry.py
+}
+
