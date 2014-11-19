@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 pkgname=capstone
-pkgver=2.1.2
-pkgrel=2
+pkgver=3.0
+pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
 depends=('glibc')
@@ -10,7 +10,7 @@ license=('BSD')
 url='http://www.capstone-engine.org'
 
 source=("http://www.capstone-engine.org/download/$pkgver/$pkgname-$pkgver.tgz")
-sha256sums=('49e41d662c5ed4dcd391ec4cfce75fb31ca4bfd245eba9e8f0cb69d6f6e8d7cc')
+sha256sums=('1deacc204f1b0b9df01b543cb1735bf8e857bc0783e6e4749c3760c62e0e7bf0')
 
 build() {
 	cd $pkgname-$pkgver
