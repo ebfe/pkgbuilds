@@ -1,6 +1,6 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 pkgname=capstone
-pkgver=3.0
+pkgver=3.0.1
 pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
@@ -10,7 +10,6 @@ license=('BSD')
 url='http://www.capstone-engine.org'
 
 source=("http://www.capstone-engine.org/download/$pkgver/$pkgname-$pkgver.tgz")
-sha256sums=('1deacc204f1b0b9df01b543cb1735bf8e857bc0783e6e4749c3760c62e0e7bf0')
 
 build() {
 	cd $pkgname-$pkgver
@@ -23,3 +22,4 @@ package() {
 	install -D -m644 LICENSE.TXT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
+sha256sums=('38fc736830de83ae345d917a6c122e2a09119ec5724b553174ddf84062cf2551')
