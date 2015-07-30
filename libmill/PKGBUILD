@@ -1,7 +1,7 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 pkgname=libmill
-pkgver=0.12.beta
-_pkgver=0.12-beta
+pkgver=0.13.beta
+_pkgver=0.13-beta
 pkgrel=1
 pkgdesc="Go-style concurrency in C"
 arch=('i686' 'x86_64')
@@ -10,8 +10,6 @@ options=('staticlibs')
 depends=('glibc')
 license=('MIT')
 source=("http://libmill.org/$pkgname-$_pkgver.tar.gz")
-sha1sums=("a0e82e71eb2fb3fe423dde18b20bee4bedd36e38")
-
 
 build() {
 	cd "$srcdir/$pkgname-$_pkgver"
@@ -26,4 +24,4 @@ package() {
 	install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
 }
 
-
+sha1sums=('e53fba770f5f5b9a339b33d405f5157ded8ce1db')
