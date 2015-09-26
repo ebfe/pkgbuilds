@@ -1,6 +1,6 @@
 # Maintainer: Michael Gehring <mg@ebfe.org>
 pkgname=capstone
-pkgver=3.0.1
+pkgver=3.0.4
 pkgrel=1
 pkgdesc='Capstone is a lightweight multi-platform, multi-architecture disassembly framework.'
 arch=('i686' 'x86_64')
@@ -22,4 +22,4 @@ package() {
 	install -D -m644 LICENSE.TXT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
-sha256sums=('38fc736830de83ae345d917a6c122e2a09119ec5724b553174ddf84062cf2551')
+sha256sums=('3e88abdf6899d11897f2e064619edcc731cc8e97e9d4db86495702551bb3ae7f')
